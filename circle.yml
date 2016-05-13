@@ -5,7 +5,7 @@ machine:
     version: 5.6.18
 dependencies:
   override:
-    - composer install
+    - composer install --no-interaction
 test:
   override:
-    -
+    - composer help
