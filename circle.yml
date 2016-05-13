@@ -1,0 +1,10 @@
+machine:
+  timezone:
+    'America/Los_Angeles'
+  php:
+    version: 5.6.18
+dependencies:
+  override: composer install
+test:
+  override:
+    - 
