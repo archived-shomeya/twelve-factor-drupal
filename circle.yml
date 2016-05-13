@@ -4,7 +4,8 @@ machine:
   php:
     version: 5.6.18
 dependencies:
-  override: composer install
+  override:
+    - composer install
 test:
   override:
-    - 
+    -
