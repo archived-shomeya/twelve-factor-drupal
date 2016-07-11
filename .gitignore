@@ -1,6 +1,9 @@
 # Ignore binaries.
 /bin
 
+# Ignore config files
+.env
+
 # Ignore Composer-managed dependencies.
 vendor/
 
