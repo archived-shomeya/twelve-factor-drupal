@@ -2,10 +2,12 @@ machine:
   timezone:
     'America/Los_Angeles'
   php:
-    version: 5.6.18
+    version: 7.0.7
 dependencies:
   override:
     - composer install --no-interaction
+  cache_directories:
+    - ~/.composer/cache
 test:
   override:
     - composer help
