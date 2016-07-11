@@ -7,13 +7,8 @@
   "prefer-stable": true,
   "repositories": [
     {
-      "type": "vcs",
-      "url": "https://github.com/mikeyp/drupal-scaffold"
-    },
-    {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-
     }
   ],
   "require": {
