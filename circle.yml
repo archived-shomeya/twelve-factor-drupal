@@ -5,6 +5,7 @@ machine:
     version: 7.0.7
 dependencies:
   override:
+    - printf "\n" | pecl install apcu
     - composer install --no-interaction
   cache_directories:
     - ~/.composer/cache
