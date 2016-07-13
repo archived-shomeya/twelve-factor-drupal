@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ce9b2524f4ccbbb72780d39c0c291268",
-    "content-hash": "fb9e60b9a7f07ee7f25f7f8edade53ae",
+    "hash": "6e0fd9a7b7fef95de4c1f54f77ac0b41",
+    "content-hash": "9afb439acdbd6e092a9d6f4c16811d5b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -71,16 +71,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.18.27",
+            "version": "3.18.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8cc3d3231d9fb9da528205f3b905097a37ac3df3"
+                "reference": "c75d3ba185d5db6998124fa1a99a63e5d529b247"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8cc3d3231d9fb9da528205f3b905097a37ac3df3",
-                "reference": "8cc3d3231d9fb9da528205f3b905097a37ac3df3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c75d3ba185d5db6998124fa1a99a63e5d529b247",
+                "reference": "c75d3ba185d5db6998124fa1a99a63e5d529b247",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +147,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2016-07-07 23:09:15"
+            "time": "2016-07-13 20:34:06"
         },
         {
             "name": "composer/installers",
@@ -967,6 +967,45 @@
                 "symfony"
             ],
             "time": "2016-06-29 06:04:48"
+        },
+        {
+            "name": "drupal/console_logger",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/console_logger",
+                "reference": "96852f046a9358efc769e87aadc7a035a8f3d1d2"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "jakub-onderka/php-console-color": "0.1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2+2-dev",
+                    "datestamp": "1446520461"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "mikey_p",
+                    "homepage": "https://www.drupal.org/user/62496"
+                }
+            ],
+            "description": "Helpful logging utility for running Drupal with the PHP built-in webserver.",
+            "homepage": "https://www.drupal.org/project/console_logger",
+            "support": {
+                "source": "http://cgit.drupalcode.org/console_logger"
+            },
+            "time": "2015-11-03 03:19:09"
         },
         {
             "name": "drupal/core",
@@ -4887,6 +4926,50 @@
             "time": "2015-11-05 12:58:44"
         },
         {
+            "name": "heroku/heroku-buildpack-php",
+            "version": "v108",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heroku/heroku-buildpack-php.git",
+                "reference": "afca47645064b9d28a6a7d9e470eb76c076d75b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/afca47645064b9d28a6a7d9e470eb76c076d75b6",
+                "reference": "afca47645064b9d28a6a7d9e470eb76c076d75b6",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/heroku-hhvm-apache2",
+                "bin/heroku-hhvm-nginx",
+                "bin/heroku-php-apache2",
+                "bin/heroku-php-nginx"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Zuelke",
+                    "email": "dz@heroku.com"
+                }
+            ],
+            "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
+            "homepage": "https://github.com/heroku/heroku-buildpack-php",
+            "keywords": [
+                "apache",
+                "apache2",
+                "foreman",
+                "heroku",
+                "hhvm",
+                "nginx",
+                "php"
+            ],
+            "time": "2016-07-08 21:43:10"
+        },
+        {
             "name": "jcalderonzumba/gastonjs",
             "version": "dev-master",
             "source": {
@@ -6113,6 +6196,7 @@
     "stability-flags": {
         "drupal-composer/drupal-scaffold": 20,
         "drupal/flysystem_s3": 20,
+        "drupal/console_logger": 20,
         "jcalderonzumba/gastonjs": 20
     },
     "prefer-stable": true,
