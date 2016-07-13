@@ -12,6 +12,9 @@
     }
   ],
   "require": {
+    "php": "~7.0.0",
+    "ext-gd": "*",
+    "ext-apcu": "*",
     "composer/installers": "^1.0.20",
     "drupal-composer/drupal-scaffold": "dev-master",
     "cweagans/composer-patches": "~1.0",
@@ -21,10 +24,7 @@
     "vlucas/phpdotenv": "^2.3",
     "drupal/flysystem": "1.0.0-alpha3",
     "drupal/flysystem_s3": "1.x-dev",
-    "drupal/console_logger": "1.x-dev",
-    "ext-gd": "*",
-    "ext-apcu": "*",
-    "gd": "*"
+    "drupal/console_logger": "1.x-dev"
   },
   "require-dev": {
     "behat/mink": "~1.6",
