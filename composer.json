@@ -21,7 +21,8 @@
     "vlucas/phpdotenv": "^2.3",
     "drupal/flysystem": "1.0.0-alpha3",
     "drupal/flysystem_s3": "1.x-dev",
-    "drupal/console_logger": "1.x-dev"
+    "drupal/console_logger": "1.x-dev",
+    "ext-gd": "*"
   },
   "require-dev": {
     "behat/mink": "~1.6",
