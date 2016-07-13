@@ -17,7 +17,7 @@ if (file_exists(dirname(DRUPAL_ROOT) . '/.env')) {
 
 $dsn_info = parse_url(getenv('DATABASE_URL'));
 $databases['default']['default'] = array (
-  'database' => ltrim($dsn_info['path'], '/'),
+  'database' => str_replace('/', '', $dsn_info['path']),
   'username' => $dsn_info['user'],
   'password' => $dsn_info['pass'],
   'host' => $dsn_info['host'],
