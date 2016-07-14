@@ -22,3 +22,8 @@ if (isset($settings['DRUPAL_ENV'])) {
     include __DIR__ . "/env/$drupal_env/settings.php";
   }
 }
+
+// Load hash salt
+if (getenv('DRUPAL_HASH_SALT')) {
+  $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
+}
