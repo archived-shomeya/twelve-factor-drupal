@@ -3,7 +3,7 @@
   "description": "Project template for Drupal 8 sites that adhere to 12 factor app guidelines.",
   "type": "project",
   "license": "GPL-2.0+",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "repositories": [
     {
@@ -14,7 +14,6 @@
   "require": {
     "php": "~7.0.0",
     "ext-gd": "*",
-    "ext-apcu": "*",
     "composer/installers": "^1.0.20",
     "drupal-composer/drupal-scaffold": "dev-master",
     "cweagans/composer-patches": "~1.0",

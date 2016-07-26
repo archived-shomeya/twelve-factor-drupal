@@ -23,7 +23,7 @@ if (isset($settings['DRUPAL_ENV'])) {
   }
 }
 
-// Load hash salt
+// Load hash_salt
 if (getenv('DRUPAL_HASH_SALT')) {
   $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
 }
