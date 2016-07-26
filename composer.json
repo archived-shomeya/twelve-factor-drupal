@@ -3,6 +3,7 @@
   "description": "Project template for Drupal 8 sites that adhere to 12 factor app guidelines.",
   "type": "project",
   "license": "GPL-2.0+",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "repositories": [
     {
