@@ -57,6 +57,32 @@ class ScriptHandler {
       umask($oldmask);
       $event->getIO()->write("Create a sites/default/files directory with chmod 0777");
     }
+
+    // Write custom config to settings.php
+    if ($fs->exists($root . '/sites/default/settings.php')) {
+      $contents = file_get_contents($root . '/sites/default/settings.php');
+
+      $contents = $contents . static::getSettingsSnippet();
+      $fs->dumpFile($root . '/sites/default/settings.php', $contents, 0666);
+      $event->getIO()->write("Added relevant snippets to settings.php");
+    }
+
   }
 
+  public static function getSettingsSnippet() {
+    return <<<'EOT'
+
+
+$config_directories['sync'] = '../config/sync';
+
+// Load database settings from environment variables
+include __DIR__ . '/dbenv.settings.php';
+
+// Load settings and config from environment
+include __DIR__ . '/env.settings.php';
+
+// Load flysystem config for S3 filesystem
+include __DIR__ . '/flysystems3.settings.php';
+EOT;
+  }
 }
