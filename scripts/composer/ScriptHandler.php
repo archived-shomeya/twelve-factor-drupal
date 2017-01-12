@@ -63,31 +63,44 @@ class ScriptHandler {
     if ($fs->exists($drupal_root . '/sites/default/settings.php')) {
       $contents = file_get_contents($drupal_root . '/sites/default/settings.php');
 
-      $contents = $contents . static::getSettingsSnippet();
-      $fs->dumpFile($drupal_root . '/sites/default/settings.php', $contents, 0666);
-      $event->getIO()->write("Added relevant snippets to settings.php");
+      if (strpos($contents, static::getSettingsSnippet()) === FALSE) {
+        $contents = $contents . static::getSettingsSnippet();
+        $fs->dumpFile($drupal_root . '/sites/default/settings.php', $contents, 0666);
+        $event->getIO()->write("Added relevant snippets to settings.php");
+      }
     }
 
+    // Copy the dbenv settings file
     if (!$fs->exists($drupal_root . '/sites/default/dbenv.settings.php')) {
       $fs->copy($project_root . '/config/settings-files/dbenv.settings.php', $drupal_root . '/sites/default/dbenv.settings.php');
       $fs->chmod($drupal_root . '/sites/default/dbenv.settings.php', 0666);
       $event->getIO()->write("Create a sites/default/dbenv.settings.php file with chmod 0666");
     }
 
+    // Copy the env settings file
     if (!$fs->exists($drupal_root . '/sites/default/env.settings.php')) {
       $fs->copy($project_root . '/config/settings-files/env.settings.php', $drupal_root . '/sites/default/env.settings.php');
       $fs->chmod($drupal_root . '/sites/default/env.settings.php', 0666);
       $event->getIO()->write("Create a sites/default/env.settings.php file with chmod 0666");
     }
 
+    // Copy the flysystem s3 settings file
     if (!$fs->exists($drupal_root . '/sites/default/flysystems3.settings.php')) {
       $fs->copy($project_root . '/config/settings-files/flysystems3.settings.php', $drupal_root . '/sites/default/flysystems3.settings.php');
       $fs->chmod($drupal_root . '/sites/default/flysystems3.settings.php', 0666);
       $event->getIO()->write("Create a sites/default/flysystems3.settings.php file with chmod 0666");
     }
 
+    // Copy the local settings file
+    if (!$fs->exists($drupal_root . '/sites/default/local.settings.php')) {
+      $fs->copy($project_root . '/config/local.settings.php', $drupal_root . '/sites/default/local.settings.php');
+      $fs->chmod($drupal_root . '/sites/default/local.settings.php', 0666);
+      $event->getIO()->write("Create a sites/default/local.settings.php file with chmod 0666");
+    }
+
+    // Copy the env settings files
     if (!$fs->exists($drupal_root . '/sites/default/env')) {
-      $fs->mirror($project_root . '/config/settings-files/env', $drupal_root . '/sites/default/env', NULL, ['override' => TRUE]);
+      $fs->mirror($project_root . '/config/env', $drupal_root . '/sites/default/env', NULL, ['override' => TRUE]);
     }
 
   }
@@ -95,8 +108,21 @@ class ScriptHandler {
   public static function getSettingsSnippet() {
     return <<<'EOT'
 
+/**
+ ******************* Twelve Factor Drupal configuration *******************
+ *
+ * The following includes enable Drupal to read it's configuration from
+ * local environment variables, and allow Drupal to be installed from 
+ * composer packages instead of being included in each repository. Any
+ * specific changes needed in settings.php should go in
+ * config/local.settings.php or in a settings.php file inside a specific
+ * enviroment in config/env/ENVIRONMENT/settings.php.
+ *
+ **************************************************************************
+ */
 
-$config_directories['sync'] = '../config/sync';
+// Load local settings file
+include __DIR__ . 'local.settings.php';
 
 // Load database settings from environment variables
 include __DIR__ . '/dbenv.settings.php';
@@ -106,6 +132,7 @@ include __DIR__ . '/env.settings.php';
 
 // Load flysystem config for S3 filesystem
 include __DIR__ . '/flysystems3.settings.php';
+
 EOT;
   }
 }
