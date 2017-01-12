@@ -122,7 +122,7 @@ class ScriptHandler {
  */
 
 // Load local settings file
-include __DIR__ . 'local.settings.php';
+include __DIR__ . '/local.settings.php';
 
 // Load database settings from environment variables
 include __DIR__ . '/dbenv.settings.php';
