@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dokku": {
+      "postdeploy": "/app/bin/drush cr && /app/bin/drush updb -y"
+    }
+  }
+}
