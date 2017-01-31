@@ -20,27 +20,9 @@ $schemes = [
       'secret' => getenv('S3_SECRET'),
       'region' => getenv('S3_REGION'),
       'bucket' => getenv('S3_BUCKET'),
-
-      // Optional configuration settings.
-
-      // 'options' => [
-      //   'ACL' => 'public-read',
-      //   'StorageClass' => 'REDUCED_REDUNDANCY',
-      // ],
-
-      // 'protocol' => 'https',                   // Autodetected based on the
-      // current request if not
-      // provided.
-
-      // 'prefix' => 'an/optional/prefix',        // Directory prefix for all
-      // uploaded/viewed files.
-
-      // 'cname' => 'static.example.com',         // A CNAME that resolves to
-      // your bucket. Used for URL
-      // generation.
-
-      // 'endpoint' => 'https://api.example.com', // An alternative API endpoint
-      // for 3rd party S3 providers.
+      'protocol' => 'https',
+      'cname' => getenv('S3_CNAME'),
+      'endpoint' => getenv('S3_ENDPOINT'),
     ],
     'cache' => TRUE,
     'serve_js' => TRUE,

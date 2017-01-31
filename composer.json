@@ -50,7 +50,6 @@
     ]
   },
   "config": {
-    "bin-dir": "bin/"
   },
   "autoload": {
     "classmap": [

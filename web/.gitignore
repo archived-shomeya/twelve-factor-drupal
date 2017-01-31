@@ -1,0 +1,19 @@
+# Do not ignore custom modules or themes
+!modules/*
+!themes/*
+
+.csslintrc
+.editorconfig
+.eslintignore
+.eslintrc
+.gitattributes
+.htaccess
+autoload.php
+core/
+index.php
+modules/contrib/
+profiles/
+robots.txt
+sites/
+update.php
+web.config

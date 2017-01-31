@@ -12,6 +12,20 @@ if (file_exists(dirname(DRUPAL_ROOT) . '/.env')) {
   $dotenv->load();
 }
 
+// Load settings from environment
+foreach ($_ENV as $name => $value) {
+  if (substr($name, 0, 16) === 'DRUPAL_SETTINGS_') {
+    $setting_key = strtolower(substr($name, 16));
+    $decoded = json_decode($value, TRUE);
+    if ($decoded != NULL) {
+      $settings[$setting_key] = $decoded;
+    }
+    else {
+      $settings[$setting_key] = $value;
+    }
+  }
+}
+
 // Get Environment from variable or settings
 if (getenv('DRUPAL_ENV')) {
   $settings['DRUPAL_ENV'] = getenv('DRUPAL_ENV');
@@ -23,7 +37,3 @@ if (isset($settings['DRUPAL_ENV'])) {
   }
 }
 
-// Load hash_salt
-if (getenv('DRUPAL_HASH_SALT')) {
-  $settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
-}
