@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 DIR=$( cd "$( dirname $( dirname "${BASH_SOURCE[0]}" ))" && pwd )
-$DIR/vendor/bin/drush --local --include=$DIR/lib/drush/commands --config=$DIR/config/drush/drushrc.php --root=$DIR/webroot $@
+$DIR/vendor/bin/drush --local --include=$DIR/lib/drush/commands --config=$DIR/config/drush/drushrc.php --root=$DIR/web $@
