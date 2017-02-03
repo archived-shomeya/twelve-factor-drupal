@@ -16,13 +16,28 @@ if (file_exists(dirname(DRUPAL_ROOT) . '/.env')) {
 }
 
 $dsn_info = parse_url(getenv('DATABASE_URL'));
-$databases['default']['default'] = array (
-  'database' => str_replace('/', '', $dsn_info['path']),
-  'username' => $dsn_info['user'],
-  'password' => $dsn_info['pass'],
-  'host' => $dsn_info['host'],
-  'port' => $dsn_info['port'],
-  'driver' => $dsn_info['scheme'],
-  'prefix' => '',
-  'collation' => 'utf8mb4_general_ci',
-);
+
+if (!empty($dsn_info)) {
+  $databases['default']['default'] = array (
+    'database' => str_replace('/', '', $dsn_info['path']),
+    'username' => $dsn_info['user'],
+    'password' => $dsn_info['pass'],
+    'host' => $dsn_info['host'],
+    'port' => $dsn_info['port'],
+    'driver' => $dsn_info['scheme'],
+    'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
+  );
+}
+else {
+  $databases['default']['default'] = array (
+    'database' => getenv('DATABASE_NAME'),
+    'username' => getenv('DATABASE_USER'),
+    'password' => getenv('DATABASE_PASSWORD'),
+    'host' => getenv('MYSQL_SERVICE_HOST'),
+    'port' => 3306,
+    'driver' => getenv('DATABASE_ENGINE'),
+    'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
+  );  
+}
