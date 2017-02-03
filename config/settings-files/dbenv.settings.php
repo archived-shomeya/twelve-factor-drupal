@@ -15,9 +15,10 @@ if (file_exists(dirname(DRUPAL_ROOT) . '/.env')) {
   $dotenv->required('DATABASE_URL')->notEmpty();
 }
 
-$dsn_info = parse_url(getenv('DATABASE_URL'));
 
-if (!empty($dsn_info)) {
+
+if (getenv('DATABASE_URL') !== FALSE) {
+  $dsn_info = parse_url(getenv('DATABASE_URL'));
   $databases['default']['default'] = array (
     'database' => str_replace('/', '', $dsn_info['path']),
     'username' => $dsn_info['user'],
